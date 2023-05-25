@@ -5,10 +5,17 @@
 {% block content %}
 <div>
     {% for article in nwarticles %}
-    <div style="margin-bottom: 5px; background-color:lightgrey;border-radius: 10px;">
-        <div style="display: flex; align-items: center;">                    
-            <img class="image-thumbail" src = "{{ article.aimage}}">
-            <a style="text-align: left;" class="btn btn-sm m-1" onclick="view_news('{{article.link}}')">{{article.headline}}</a>
+    <div class="news-container">
+        <div class="news-article">
+            <div>
+                <img class="image-thumbail" src="{{ article.aimage}}">
+            </div>
+            <div>
+                <a class="btn btn-sm m-1 news-article-link"
+                    onclick="view_news('{{article.link}}')">{{article.headline}}</a>
+                <a class="btn btn-sm m-1 news-date"
+                    onclick="view_news('{{article.link}}')">@{{article.f_published_date}}</a>
+            </div>
         </div>
     </div>
     {% empty %}

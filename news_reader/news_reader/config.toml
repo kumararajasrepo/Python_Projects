@@ -1,9 +1,20 @@
 #Config Entries
 
 google_news_url="https://news.google.com/search?hl=en-IN&gl=IN&q="
-bing_news_url="https://www.bing.com/news/search?q="
+yahoo_news_url="https://news.search.yahoo.com/search?p="
+ndtv_news_url="https://www.ndtv.com/search?searchtext="
 default_title="India"
 article_class="ipQwMb ekueJc RD0gLb"
 image_class="tvs3Id QwxBBf"
 article_link="https://news.google.com"
 log_folder_name="log_files"
+error_file="error.log"
+info_file="information.log"
+google_article_tag="article"
+google_article_image_tag="figure"
+google_published_date_tag="datetime"
+google_published_date_class="WW6dff uQIVzc Sksgp slhocf"
+ndtv_news_list_tag="news_list"
+ndtv_article_tag="li"
+ndtv_published_date_class="src_itm-stx"
+

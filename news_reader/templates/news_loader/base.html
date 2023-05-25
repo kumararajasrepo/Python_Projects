@@ -12,25 +12,27 @@
     <style>
         .image-thumbail {
             height: 100px;
-            width:100px;
+            width: 100px;
             object-fit: cover;
             border-radius: 10px;
         }
+
         .banner5 {
-            background-color:rgb(169, 164, 208);
+            background-color: rgb(169, 164, 208);
             text-align: right;
             font-size: 20px;
             color: #333;
-            font-family:'serif';
+            font-family: 'serif';
             margin-bottom: 20px;
             height: 120px;
         }
+
         .banner {
-            background-color:rgba(0, 115, 255, 0.297);            
+            background-color: rgba(0, 115, 255, 0.297);
             display: flex;
             align-items: center;
-            height:120px;
-            margin-bottom: 20px;    
+            height: 120px;
+            margin-bottom: 20px;
         }
 
         .search-container {
@@ -48,12 +50,36 @@
         .banner-img {
             margin-left: auto;
         }
+
+        .search-button {
+            border-radius: 5px;
+        }
+
+        .news-container {
+            margin-bottom: 5px;
+            background-color: lightgrey;
+            border-radius: 10px;
+        }
+
+        .news-article {
+            display: flex;
+            align-items: center;
+        }
+
+        .news-article-link {
+            text-align: left;
+        }
+
+        .news-date {
+            text-align: left;
+            display: block;
+        }
     </style>
     <script>
         function view_news(imgsrc) {
             window.open(imgsrc, '_blank');
         }
-        function get_news(){
+        function get_news() {
             const myInput = document.getElementById('searchInput');
             const value = myInput.value;
             var url = "/news?title=" + encodeURIComponent(value);
@@ -63,14 +89,15 @@
 </head>
 
 <body class="m-5">
-    <div >
+    <div>
         <div class="banner">
             <div class="search-container">
-              <input type="text" id="searchInput" name="searchInput" class="search-input" placeholder="News about...">
-              <button type="submit" style="border-radius: 5px;" onclick="get_news()">Search</button>
+                <input type="text" id="searchInput" name="searchInput" class="search-input" placeholder="News about...">
+                <button type="submit" class="search-button" onclick="get_news()">Search</button>
             </div>
-            <img src="https://previews.123rf.com/images/mitay20/mitay201912/mitay20191200349/135613223-newspaper-stack-icon-in-flat-design-on-blue-background-world-news-magazine-paper-pile-journal.jpg" alt="Image" style="height:120px;border-top-left-radius: 10px;">
-          </div>
+            <img src="https://previews.123rf.com/images/mitay20/mitay201912/mitay20191200349/135613223-newspaper-stack-icon-in-flat-design-on-blue-background-world-news-magazine-paper-pile-journal.jpg"
+                alt="Image" style="height:120px;border-top-left-radius: 10px;">
+        </div>
         {% block content %}{% endblock %}
     </div>
 </body>
