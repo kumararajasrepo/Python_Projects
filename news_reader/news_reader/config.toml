@@ -1,0 +1,9 @@
+#Config Entries
+
+google_news_url="https://news.google.com/search?hl=en-IN&gl=IN&q="
+bing_news_url="https://www.bing.com/news/search?q="
+default_title="India"
+article_class="ipQwMb ekueJc RD0gLb"
+image_class="tvs3Id QwxBBf"
+article_link="https://news.google.com"
+log_folder_name="log_files"

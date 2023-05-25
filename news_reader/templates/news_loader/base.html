@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>{% block title %}{% endblock %}</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <style>
+        .image-thumbail {
+            height: 100px;
+            width:100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .banner5 {
+            background-color:rgb(169, 164, 208);
+            text-align: right;
+            font-size: 20px;
+            color: #333;
+            font-family:'serif';
+            margin-bottom: 20px;
+            height: 120px;
+        }
+        .banner {
+            background-color:rgba(0, 115, 255, 0.297);            
+            display: flex;
+            align-items: center;
+            height:120px;
+            margin-bottom: 20px;    
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+        }
+
+        .search-input {
+            margin-right: 10px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        .banner-img {
+            margin-left: auto;
+        }
+    </style>
+    <script>
+        function view_news(imgsrc) {
+            window.open(imgsrc, '_blank');
+        }
+        function get_news(){
+            const myInput = document.getElementById('searchInput');
+            const value = myInput.value;
+            var url = "/news?title=" + encodeURIComponent(value);
+            window.location.href = url;
+        }
+    </script>
+</head>
+
+<body class="m-5">
+    <div >
+        <div class="banner">
+            <div class="search-container">
+              <input type="text" id="searchInput" name="searchInput" class="search-input" placeholder="News about...">
+              <button type="submit" style="border-radius: 5px;" onclick="get_news()">Search</button>
+            </div>
+            <img src="https://previews.123rf.com/images/mitay20/mitay201912/mitay20191200349/135613223-newspaper-stack-icon-in-flat-design-on-blue-background-world-news-magazine-paper-pile-journal.jpg" alt="Image" style="height:120px;border-top-left-radius: 10px;">
+          </div>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>
