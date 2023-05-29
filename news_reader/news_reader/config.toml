@@ -17,4 +17,13 @@ google_published_date_class="WW6dff uQIVzc Sksgp slhocf"
 ndtv_news_list_tag="news_list"
 ndtv_article_tag="li"
 ndtv_published_date_class="src_itm-stx"
+whatsapp_sender="+919962539199"
+latest_news_count=10
+sender_email = 'kumararaja.sethuraja@ideas2it.com'
+smtp_username = 'kumararaja.sethuraja@ideas2it.com'
+smtp_password = "wvagocptrzrwslsf"
+receiver_email = 'kumararaja.sethuraja@ideas2it.com'
+subject = 'Today News:'
+message_to_text = "Hi,"
+message_header="Please find the today latest news pages links given below about "
 
