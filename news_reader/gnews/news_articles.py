@@ -3,8 +3,10 @@ from logger.log import Log
 import pandas as pd
 from gnews.google_news_extractor import GoogleNewsExtractor
 from gnews.ndtv_news_extractor import NdtvNewsExtractor
-from news_reader.config import config_data
 from gnews.news_sources import NewsSources
+from messaging.email import EmailNotification
+from messaging.whatsapp import WhatsappNotification
+from messaging.notification_sources import NotificationSources
 
 
 class NewsArticles:
@@ -29,6 +31,7 @@ class NewsArticles:
                 news.extend(news_extractor.extract(title))
             df_sorted = self.sort_news_aricles(news)
             sorted_articles = self.build_articles(df_sorted)
+            self.notify(sorted_articles, title)
         except Exception as e:
             log.log_error(e)
         return sorted_articles
@@ -59,3 +62,27 @@ class NewsArticles:
         except Exception as e:
             log.log_error(e)
         return articles
+
+    def get_notification_source(self, source):
+        log = Log("Logging")
+        notify_obj = None
+        try:
+            if source == NotificationSources.EMAIL.value:
+                notify_obj = EmailNotification()
+            elif source == NotificationSources.WHATSAPP.value:
+                notify_obj = WhatsappNotification()
+            else:
+                raise ValueError("Invalid notification source")
+        except Exception as e:
+            log.log_error(e)
+        return notify_obj
+
+    def notify(self, articles, title):
+        log = Log("Logging")
+        try:
+            for source in NotificationSources:
+                notify_obj = self.get_notification_source(source.value)
+                if notify_obj is not None:
+                    notify_obj.notify(articles, title)
+        except Exception as e:
+            log.log_error(e)
